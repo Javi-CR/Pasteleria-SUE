@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "467704049897",
+    "project_id": "pasteleria-sue",
+    "storage_bucket": "pasteleria-sue.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467704049897:android:4896f332a3719f3e0a4078",
+        "android_client_info": {
+          "package_name": "com.mycompany.sue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467704049897-osii2jd2p6c3ee6vmclpob7n2ckmg3oc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.sue",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "467704049897-m7ni84rio35t859s66d4b4n30498ng0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsY3W_F8R8-kunkhQOyU8iIINIlSWBVuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467704049897-m7ni84rio35t859s66d4b4n30498ng0k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467704049897-hkdrr7kjttkvcd2lat8isfg4r3d3hp9i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.sue"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
