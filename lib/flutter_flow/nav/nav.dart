@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -73,47 +73,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const InicioSesionWidget(),
+          appStateNotifier.loggedIn ? const HomeWidget() : const InicioSesionWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const InicioSesionWidget(),
+              appStateNotifier.loggedIn ? const HomeWidget() : const InicioSesionWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Home') : const HomeWidget(),
+          builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
           name: 'Buscar',
           path: '/buscar',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Buscar')
-              : const BuscarWidget(),
+          builder: (context, params) => const BuscarWidget(),
         ),
         FFRoute(
           name: 'Carrito',
           path: '/carrito',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Carrito')
-              : const CarritoWidget(),
+          builder: (context, params) => const CarritoWidget(),
         ),
         FFRoute(
           name: 'Favoritos',
           path: '/favoritos',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Favoritos')
-              : const FavoritosWidget(),
+          builder: (context, params) => const FavoritosWidget(),
         ),
         FFRoute(
           name: 'Perfil',
           path: '/perfil',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Perfil')
-              : const PerfilWidget(),
+          builder: (context, params) => const PerfilWidget(),
         ),
         FFRoute(
           name: 'InicioSesion',
@@ -139,6 +130,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ResetPass',
           path: '/resetPass',
           builder: (context, params) => const ResetPassWidget(),
+        ),
+        FFRoute(
+          name: 'AdminProductos',
+          path: '/adminProductos',
+          builder: (context, params) => const AdminProductosWidget(),
+        ),
+        FFRoute(
+          name: 'ProductIndex',
+          path: '/productIndex',
+          builder: (context, params) => const ProductIndexWidget(),
+        ),
+        FFRoute(
+          name: 'AdminProductosEdit',
+          path: '/adminProductosEdit',
+          asyncParams: {
+            'product': getDoc(['Product'], ProductRecord.fromSnapshot),
+          },
+          builder: (context, params) => AdminProductosEditWidget(
+            product: params.getParam(
+              'product',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

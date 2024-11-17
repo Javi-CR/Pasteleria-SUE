@@ -651,12 +651,12 @@ class _RegistrarseWidgetState extends State<RegistrarseWidget> {
                                         await UsersRecord.collection
                                             .doc(user.uid)
                                             .update(createUsersRecordData(
-                                              username: _model
-                                                  .nameTextController.text,
                                               lastname: _model
                                                   .lastNameTextController.text,
                                               email: _model
                                                   .emailTextController.text,
+                                              username: _model
+                                                  .nameTextController.text,
                                             ));
 
                                         await authManager
