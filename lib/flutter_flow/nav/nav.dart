@@ -7,6 +7,7 @@ import '/backend/backend.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -73,38 +74,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomeWidget() : const InicioSesionWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const InicioSesionWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomeWidget() : const InicioSesionWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const InicioSesionWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) => const HomeWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Home') : const HomeWidget(),
         ),
         FFRoute(
           name: 'Buscar',
           path: '/buscar',
-          builder: (context, params) => const BuscarWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Buscar')
+              : const BuscarWidget(),
         ),
         FFRoute(
           name: 'Carrito',
           path: '/carrito',
-          builder: (context, params) => const CarritoWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Carrito')
+              : const CarritoWidget(),
         ),
         FFRoute(
           name: 'Favoritos',
           path: '/favoritos',
-          builder: (context, params) => const FavoritosWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Favoritos')
+              : const FavoritosWidget(),
         ),
         FFRoute(
           name: 'Perfil',
           path: '/perfil',
-          builder: (context, params) => const PerfilWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Perfil')
+              : const PerfilWidget(),
         ),
         FFRoute(
           name: 'InicioSesion',

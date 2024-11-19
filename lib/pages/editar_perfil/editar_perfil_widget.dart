@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'editar_perfil_model.dart';
 export 'editar_perfil_model.dart';
 
@@ -23,6 +24,16 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditarPerfilModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await authManager.refreshUser();
+      if (currentUserEmailVerified == true) {
+        return;
+      }
+
+      context.pushNamed('VerificacionCorreo');
+    });
 
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();

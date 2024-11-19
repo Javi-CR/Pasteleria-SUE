@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'admin_productos_edit_model.dart';
 export 'admin_productos_edit_model.dart';
 
@@ -30,11 +29,6 @@ class _AdminProductosEditWidgetState extends State<AdminProductosEditWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AdminProductosEditModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await authManager.refreshUser();
-    });
 
     _model.nameTextController ??=
         TextEditingController(text: widget.product?.name);

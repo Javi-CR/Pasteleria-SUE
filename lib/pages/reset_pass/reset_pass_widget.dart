@@ -221,7 +221,7 @@ class _ResetPassWidgetState extends State<ResetPassWidget> {
                     context: context,
                   );
 
-                  context.pushNamed('Perfil');
+                  context.pushNamed('InicioSesion');
                 },
                 text: 'Enviar Correo',
                 options: FFButtonOptions(

@@ -10,8 +10,8 @@ export '/pages/verificacion_correo/verificacion_correo_widget.dart'
     show VerificacionCorreoWidget;
 export '/pages/editar_perfil/editar_perfil_widget.dart' show EditarPerfilWidget;
 export '/pages/reset_pass/reset_pass_widget.dart' show ResetPassWidget;
-export '/pages/admin_productos/admin_productos_widget.dart'
+export '/admin/admin_productos/admin_productos_widget.dart'
     show AdminProductosWidget;
-export '/pages/product_index/product_index_widget.dart' show ProductIndexWidget;
-export '/pages/admin_productos_edit/admin_productos_edit_widget.dart'
+export '/admin/product_index/product_index_widget.dart' show ProductIndexWidget;
+export '/admin/admin_productos_edit/admin_productos_edit_widget.dart'
     show AdminProductosEditWidget;
